@@ -2,12 +2,14 @@ import React from "react";
 import PlayerScore from "./PlayerScore";
 
 const HighScoreTable = (props) => {
-	return (
-		// here table HTML + PlayerScore component for each row
+
+	const sortedScores = props.country.scores.sort((a,b) => a.s < b.s)
+
+	return (		
 		<table class="table">
 			<h2>HIGH SCORES: {props.country.name}</h2>
 			<tbody>
-				{props.country.scores.map((el, index) => (<PlayerScore scores={el} />))}
+				{sortedScores.map((el, index) => (<PlayerScore scores={el} key={index}/>))}
 			</tbody>
     	</table>
 	)
