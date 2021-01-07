@@ -3,16 +3,16 @@ import PlayerScore from "./PlayerScore";
 
 const HighScoreTable = (props) => {
 
-	const sortedScores = props.country.scores.sort((a,b) => a.s < b.s)
-
-	return (		
-		<table class="table">
-			<h2>HIGH SCORES: {props.country.name}</h2>
+	return (
+		<section className="country">	
+		<h2>HIGH SCORES: {props.country.name}</h2>	
+		<table className="table">
 			<tbody>
-				{sortedScores.map((el, index) => (<PlayerScore scores={el} key={index}/>))}
+				{props.country.scores.map((el, index) => (<PlayerScore scores={el} key={index}/>))}
 			</tbody>
     	</table>
+		</section>
 	)
 }
 
-export default HighScoreTable;
+export default HighScoreTable; 
